@@ -1,0 +1,57 @@
+.introSection {
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoWrapper {
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+}
+
+.text {
+  max-width: 640px;
+}
+
+.title {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  display: inline-block;
+  margin-top: 0.75rem;
+  opacity: 0.75;
+  font-size: 0.95rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 110px;
+    margin: 2rem;
+  }
+}
+
+.titlesec {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
