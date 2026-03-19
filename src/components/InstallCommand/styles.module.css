@@ -1,0 +1,65 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  margin-top: 1rem;
+  padding: 0.6rem 0.75rem;
+
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  max-width: 100%;
+  overflow: hidden;
+    justify-content: space-between;
+
+}
+
+.command {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  max-width: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+/* hide scrollbar but keep scrollability */
+.command::-webkit-scrollbar {
+  display: none;
+}
+
+.button {
+  flex-shrink: 0;
+
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem 0.7rem;
+  border-radius: 7px;
+
+  background: transparent;
+  color: white;
+  font-size: 0.75rem;
+}
+
+/* ✅ MOBILE FIX */
+@media (max-width: 640px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    display: none;
+  }
+
+  .command {
+    white-space: normal;
+    text-align: center;
+    overflow-x: visible;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+}
