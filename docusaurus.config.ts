@@ -1,13 +1,15 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'PyFuzzy_Rust',
-  tagline: 'Fast, Efficient and Easy to use Fuzzy Logic',
-  favicon: 'img/favicon.ico',
+  title: 'Ferrifuzz',
+  tagline: 'Fast, Efficient and Easy to use Fuzzy Logic Library!',
+  favicon: 'img/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -23,7 +25,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  projectName: 'pyFuzzyrs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -41,6 +43,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -75,9 +79,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'PyFuzzyRust',
+      title: 'Ferrifuzz',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'pyFuzzyRust Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -133,12 +137,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/parsabordbar',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Ferrifuzz, Inc.`,
     },
     prism: {
       theme: prismThemes.github,
