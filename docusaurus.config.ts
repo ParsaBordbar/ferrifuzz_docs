@@ -8,7 +8,7 @@ import rehypeKatex from 'rehype-katex';
 
 const config: Config = {
   title: 'Ferrifuzz',
-  tagline: 'Fast, Efficient and Easy to use Fuzzy Logic Library!',
+  tagline: 'Built for uncertainty. Engineered for speed.',
   favicon: 'img/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -81,7 +81,7 @@ const config: Config = {
     navbar: {
       title: 'Ferrifuzz',
       logo: {
-        alt: 'pyFuzzyRust Logo',
+        alt: 'Ferrifuzz Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -93,7 +93,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/pyFuzzy_rs',
           label: 'GitHub',
           position: 'right',
         },
