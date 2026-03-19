@@ -1,30 +1,64 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Brand primary (fuzzy indigo) */
+  --ifm-color-primary: #7C83FF;
+  --ifm-color-primary-dark: #6B72E6;
+  --ifm-color-primary-darker: #5F66D6;
+  --ifm-color-primary-darkest: #4B51B3;
+  --ifm-color-primary-light: #8F95FF;
+  --ifm-color-primary-lighter: #A3A8FF;
+  --ifm-color-primary-lightest: #C1C4FF;
+
+  /* Accent (Rust / performance) */
+  --ifm-color-secondary: #FF9F6E;
+
+  /* Typography */
+  --ifm-font-color-base: #1E2340;
+  --ifm-heading-color: #161A2E;
+
+  /* Code */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-code-background: #F3F4FF;
+
+  /* Highlighted lines */
+  --docusaurus-highlighted-code-line-bg: rgba(124, 131, 255, 0.12);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Brand primary (logo core colors) */
+  --ifm-color-primary: #7C83FF;
+  --ifm-color-primary-dark: #6B72E6;
+  --ifm-color-primary-darker: #5F66D6;
+  --ifm-color-primary-darkest: #4B51B3;
+  --ifm-color-primary-light: #8F95FF;
+  --ifm-color-primary-lighter: #A3A8FF;
+  --ifm-color-primary-lightest: #C1C4FF;
+
+
+  /* Accent */
+  --ifm-color-secondary: #FF9F6E;
+
+  /* Backgrounds */
+  --ifm-background-color: #0F1220;
+  --ifm-background-surface-color: #161A2E;
+
+  /* Typography */
+  --ifm-font-color-base: #E6E8FF;
+  --ifm-font-color-secondary: #B8BCFF;
+  --ifm-heading-color: #FFFFFF;
+  --ifm-footer-background-color: #11111;
+
+  /* Code blocks */
+  --ifm-code-background: #0B0E1A;
+
+  /* Highlighted lines */
+  --docusaurus-highlighted-code-line-bg: rgba(124, 131, 255, 0.25);
+}
+
+/* Override footer colors */
+.footer {
+  --ifm-footer-background-color: #161A2E;       /* dark gray */
+  --ifm-footer-color: #B8BCFF;                  /* text color */
+  --ifm-footer-link-color: #cdc3c2;             /* link color */
+  --ifm-footer-link-hover-color: #A3A8FF;       /* hover color */
 }
