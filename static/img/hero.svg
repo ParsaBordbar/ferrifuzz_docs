@@ -1,0 +1,56 @@
+<svg
+  width="1600"
+  height="420"
+  viewBox="0 0 1600 420"
+  xmlns="http://www.w3.org/2000/svg"
+  preserveAspectRatio="xMidYMid slice"
+>
+  <!-- Gaussian membership functions -->
+  <g fill="none" stroke-width="6" opacity="0.32">
+
+    <!-- Left Gaussian -->
+    <path
+      d="M0 340
+         C200 335 260 250 360 160
+         C460 80 560 80 660 160
+         C760 250 820 335 960 340"
+      stroke="#7a4a5e"
+    />
+
+    <!-- Center Gaussian (dominant) -->
+    <path
+      d="M200 340
+         C380 320 480 180 600 90
+         C720 30 880 30 1000 
+         C1120 180 1220 320 1400 340"
+      stroke="#d15700"
+    />
+
+    <!-- Right Gaussian -->
+    <path
+      d="M640 340
+         C780 330 860 230 960 150
+         C1060 80 1160 80 1260 150
+         C1360 230 1440 330 1600 340"
+      stroke="#e0b44c"
+    />
+
+  </g>
+
+  <!-- Soft baseline -->
+  <line
+    x1="0"
+    y1="340"
+    x2="1600"
+    y2="340"
+    stroke="#b9b1aa"
+    stroke-width="2"
+    opacity="0.18"
+  />
+
+  <!-- Subtle highlight points -->
+  <g opacity="0.4">
+    <circle cx="620" cy="120" r="6" fill="#d15700"/>
+    <circle cx="900" cy="120" r="6" fill="#d15700"/>
+  </g>
+</svg>
