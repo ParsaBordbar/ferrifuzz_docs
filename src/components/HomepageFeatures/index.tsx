@@ -11,32 +11,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Pythonic Fuzzy Logic',
+    Svg: require('@site/static/img/py.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Clear, expressive fuzzy systems with a clean Python API — no boilerplate, no surprises.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Rust‑Powered Performance',
+    Svg: require('@site/static/img/rustPowered.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        High‑performance inference and rule evaluation implemented in Rust, safely exposed to Python.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Built for Uncertainty',
+    Svg: require('@site/static/img/uncertainty.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Designed around partial truth, overlapping membership functions, and real‑world ambiguity.
       </>
     ),
   },
