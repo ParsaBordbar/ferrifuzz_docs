@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import styles from './styles.module.css';
 
 export default function InstallCommand() {
-  const command = 'pip install ferrifuzz';
+  // Pre-release builds are published to TestPyPI; switch to `pip install ferrifuzz`
+  // once the package is on PyPI.
+  const command = 'pip install -i https://test.pypi.org/simple/ "ferrifuzz==0.2.0"';
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {

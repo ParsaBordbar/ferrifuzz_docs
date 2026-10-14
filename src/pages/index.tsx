@@ -20,7 +20,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
+            to="/docs/getting-started/installation">
             Get Started
           </Link>
         </div>
@@ -34,8 +34,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      // title='PyFuzzyRust'
-      description="Description will go into a meta tag in <head />">
+      description="Ferrifuzz is a fuzzy logic library with a Rust core and a Python package: Mamdani, Sugeno/TSK, interval type-2 inference and fuzzy time series.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

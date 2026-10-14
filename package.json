@@ -12,7 +12,10 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "check:python": "python3 scripts/check_python_samples.py docs",
+    "check:rust": "python3 scripts/check_rust_samples.py ../ferrifuzz/crates/ferrifuzz",
+    "check": "npm run check:python && npm run check:rust && npm run build"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",

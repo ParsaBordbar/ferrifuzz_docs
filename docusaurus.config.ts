@@ -6,36 +6,48 @@ import rehypeKatex from 'rehype-katex';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const REPO_URL = 'https://github.com/ParsaBordbar/ferrifuzz';
+
 const config: Config = {
   title: 'Ferrifuzz',
-  tagline: 'Built for uncertainty. Engineered for speed.',
+  tagline: 'Fuzzy logic for Python and Rust. Built for uncertainty, engineered for speed.',
   favicon: 'img/favicon.svg',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  // Served from the root of its own domain. Set the domain at build time:
+  //   DOCS_URL=https://docs.example.com npm run build
+  // Until DOCS_PUBLIC=1 the site asks search engines not to index it (tester preview).
+  url: process.env.DOCS_URL ?? 'https://ferrifuzz.example.com',
   baseUrl: '/',
+  noIndex: process.env.DOCS_PUBLIC !== '1',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'pyFuzzyrs', // Usually your repo name.
+  organizationName: 'ParsaBordbar',
+  projectName: 'ferrifuzz',
 
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
+  },
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  // KaTeX stylesheet for the math rendered by remark-math / rehype-katex.
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.38/dist/katex.min.css',
+      type: 'text/css',
+      crossorigin: 'anonymous',
+    },
+  ],
 
   presets: [
     [
@@ -45,26 +57,10 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // No editUrl: the source repository is private for now, so
+          // "edit this page" links would 404 for readers.
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -73,8 +69,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -87,13 +81,15 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/docs/tutorials/tipping', label: 'Tutorials', position: 'left'},
+        {to: '/docs/python-api/overview', label: 'Python API', position: 'left'},
+        {to: '/docs/rust-api/overview', label: 'Rust API', position: 'left'},
         {
-          href: 'https://github.com/pyFuzzy_rs',
+          href: REPO_URL,
           label: 'GitHub',
           position: 'right',
         },
@@ -103,50 +99,38 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Learn',
           items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
+            {label: 'Installation', to: '/docs/getting-started/installation'},
+            {label: 'Your first system', to: '/docs/getting-started/first-system'},
+            {label: 'Concepts', to: '/docs/concepts/what-is-fuzzy'},
+            {label: 'Tutorials', to: '/docs/tutorials/tipping'},
           ],
         },
         {
-          title: 'Community',
+          title: 'Reference',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+            {label: 'Rule syntax', to: '/docs/rule-syntax'},
+            {label: 'Python API', to: '/docs/python-api/overview'},
+            {label: 'Rust API', to: '/docs/rust-api/overview'},
+            {label: 'FAQ', to: '/docs/faq'},
           ],
         },
         {
-          title: 'More',
+          title: 'Project',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/parsabordbar',
-            },
+            {label: 'GitHub', href: REPO_URL},
+            {label: 'Issues', href: `${REPO_URL}/issues`},
+            {label: 'How to cite & license', to: '/docs/cite-license'},
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Ferrifuzz, Inc.`,
+      copyright: `Copyright © 2025-${new Date().getFullYear()} Parsa Bordbar and the ferrifuzz contributors. Licensed under Apache-2.0.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['rust', 'toml', 'bash'],
     },
   } satisfies Preset.ThemeConfig,
 };

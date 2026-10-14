@@ -1,8 +1,0 @@
-{
-  "label": "Langauges",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "The FerriFuzz Library is available as both a Python Library and a Rust Crate"
-  }
-}
