@@ -1,41 +1,39 @@
-# Website
+# ferrifuzz documentation site
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
-
-## Installation
+Source of the ferrifuzz documentation, built with [Docusaurus](https://docusaurus.io/) 3.
 
 ```bash
-yarn
+npm install
+npm start          # dev server with live reload
+npm run build      # static site in build/ (fails on broken links)
+npm run typecheck
 ```
 
-## Local Development
+- Pages live in `docs/`; the sidebar order is set explicitly in `sidebars.ts`.
+- Math uses KaTeX (`$...$`, `$$...$$`).
+- Notes for maintainers that must not be shown to readers go in HTML comments.
+  `<!-- TODO(0.2.0-api): ... -->` marks claims to re-check against a library release.
 
-```bash
-yarn start
-```
+## Deploying to your own server
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+The site is static: `npm run build` writes plain HTML/CSS/JS to `build/`, served from the root
+of its own domain (`baseUrl: '/'`).
 
-## Build
+1. **Server, once:** create the web root and install the nginx site from
+   [`deploy/nginx.conf`](deploy/nginx.conf) (replace `docs.example.com`, then follow the
+   commands at the top of the file, including `certbot` for HTTPS):
+   ```bash
+   sudo mkdir -p /var/www/ferrifuzz-docs && sudo chown "$USER" /var/www/ferrifuzz-docs
+   ```
+2. **Every deploy, from this folder:**
+   ```bash
+   DOCS_URL=https://docs.example.com DEPLOY_TARGET=user@server:/var/www/ferrifuzz-docs deploy/deploy.sh
+   ```
+   `DOCS_URL` must match the domain in the nginx config (it goes into canonical links and
+   the sitemap).
+3. **Check:** open the site, click through a few pages, and load a missing URL to see the 404
+   page.
 
-```bash
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+While testing, every page has `<meta name="robots" content="noindex">` so search engines skip
+the preview. When going public, deploy with `DOCS_PUBLIC=1` in front of the command.
+Install commands point at PyPI (`pip install ferrifuzz`).

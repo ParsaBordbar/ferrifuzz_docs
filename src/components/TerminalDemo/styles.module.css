@@ -1,0 +1,54 @@
+.terminal {
+  max-width: 750px;
+  margin: 40px auto;
+  background: #0d1117;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: monospace;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.header {
+  background: #161b22;
+  padding: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.red, .yellow, .green {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.body {
+  padding: 16px;
+  color: #c9d1d9;
+  font-size: 14px;
+  height: 360px;
+  scroll-behavior: smooth;
+}
+
+.prompt {
+  color: #58a6ff;
+}
+
+.command {
+  margin-bottom: 10px;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+.line {
+  white-space: pre;
+}
+
+@keyframes blink {
+  50% { opacity: 0 }
+}
