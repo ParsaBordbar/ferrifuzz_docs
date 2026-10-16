@@ -1,0 +1,56 @@
+name: Docs
+
+# Pull requests: build only (catches broken links and type errors).
+# Push to main / manual run: build and publish to GitHub Pages at the custom domain.
+#
+# One-time setup: Settings → Pages → Source: "GitHub Actions", Custom domain:
+# ferrifuzz.bubblelamp.space, Enforce HTTPS. Set the repository variable DOCS_PUBLIC=1
+# (Settings → Secrets and variables → Actions → Variables) when search engines may index it.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOCS_URL: https://ferrifuzz.bubblelamp.space
+  DOCS_PUBLIC: ${{ vars.DOCS_PUBLIC }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

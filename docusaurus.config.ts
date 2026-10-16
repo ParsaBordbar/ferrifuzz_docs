@@ -18,9 +18,9 @@ const config: Config = {
   },
 
   // Served from the root of its own domain. Set the domain at build time:
-  //   DOCS_URL=https://docs.example.com npm run build
+  //   DOCS_URL=https://ferrifuzz.bubblelamp.space npm run build (the default)
   // Until DOCS_PUBLIC=1 the site asks search engines not to index it (tester preview).
-  url: process.env.DOCS_URL ?? 'https://ferrifuzz.example.com',
+  url: process.env.DOCS_URL ?? 'https://ferrifuzz.bubblelamp.space',
   baseUrl: '/',
   noIndex: process.env.DOCS_PUBLIC !== '1',
 
