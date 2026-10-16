@@ -1,7 +1,7 @@
 ---
 title: 'Installation'
 sidebar_label: 'Installation'
-description: 'Install the ferrifuzz Python package from TestPyPI, add the optional numpy and matplotlib extras, or use the Rust crate.'
+description: 'Install the ferrifuzz Python package from PyPI, add the optional numpy and matplotlib extras, or use the Rust crate.'
 ---
 
 # Installation
@@ -12,14 +12,13 @@ Ferrifuzz needs **Python 3.9 or newer** on Windows (x64), macOS (Intel or Apple 
 Linux (x86_64 / ARM64, glibc 2.17+). Wheels are prebuilt (one `abi3` wheel per platform covers
 every Python version from 3.9 up), so you do **not** need a Rust toolchain.
 
-The 0.2.0 pre-release is published on **TestPyPI** while the API settles. Install it into a
-fresh virtual environment:
+Install it into a fresh virtual environment:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
-pip install -i https://test.pypi.org/simple/ "ferrifuzz==0.2.0"
+pip install ferrifuzz
 ```
 
 Or with [uv](https://docs.astral.sh/uv/):
@@ -27,14 +26,8 @@ Or with [uv](https://docs.astral.sh/uv/):
 ```bash
 uv venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
-uv pip install -i https://test.pypi.org/simple/ "ferrifuzz==0.2.0"
+uv pip install ferrifuzz
 ```
-
-:::note Why TestPyPI?
-TestPyPI is a sandbox copy of PyPI. Installing from it only changes where `pip` looks for
-`ferrifuzz`; the package itself is the same. Once the library is published to the real
-PyPI, the command becomes plain `pip install ferrifuzz`.
-:::
 
 ### Optional extras
 
@@ -45,23 +38,19 @@ Ferrifuzz has **no required dependencies**. Two optional ones unlock extra featu
 | `numpy` | `compute_batch`, `output_set` and `mf.membership(array)` return NumPy arrays | they return plain lists |
 | `matplotlib` (+ numpy) | the `ferrifuzz.plot` helpers (`plot_variable`, `plot_surface`, ...) | `ferrifuzz.plot` raises a clear `ImportError` when called |
 
-numpy and matplotlib are not on TestPyPI, so install them from the regular PyPI first, then
-ferrifuzz from TestPyPI:
+The package defines matching extras:
 
 ```bash
-pip install numpy matplotlib
-pip install -i https://test.pypi.org/simple/ "ferrifuzz==0.2.0"
+pip install "ferrifuzz[plot]"     # numpy + matplotlib
+pip install "ferrifuzz[numpy]"    # numpy only
+pip install "ferrifuzz[all]"      # everything optional
 ```
-
-Installing them separately keeps TestPyPI from supplying anything except ferrifuzz itself.
-After the PyPI release the extras work in one step: `pip install "ferrifuzz[plot]"` (numpy +
-matplotlib), `ferrifuzz[numpy]` or `ferrifuzz[all]`.
 
 ### Troubleshooting
 
-- **`ferrifuzz==0.1.0 depends on Python>=3.13`** or **`No matching distribution found`**:
-  you are not getting 0.2.0. Keep the `==0.2.0` pin, run `python -m pip install --upgrade pip`,
-  and with uv add `--refresh` so it re-reads the index instead of a cached copy.
+- **`No matching distribution found`** or an old version: check `python --version` (3.9+),
+  run `python -m pip install --upgrade pip`, and with uv add `--refresh` so it re-reads the
+  index instead of a cached copy.
 - **`No module named ferrifuzz`** after installing: the virtual environment is not active in
   this terminal (or in your editor's interpreter setting). Activate it and check with
   `python -c "import sys; print(sys.prefix)"`.

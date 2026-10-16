@@ -55,5 +55,4 @@ While testing, every page has `<meta name="robots" content="noindex">` so search
 the preview. When going public, add `DOCS_PUBLIC=1` to `deploy/deploy.env` on the VPS and run
 `sh deploy/deploy-docs.sh`.
 
-Install commands point at TestPyPI (`ferrifuzz==0.2.0`) until the PyPI release; branch
-`docs/pypi-launch` switches them to `pip install ferrifuzz`.
+Install commands point at PyPI (`pip install ferrifuzz`).

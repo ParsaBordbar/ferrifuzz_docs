@@ -14,7 +14,7 @@ now raises, the error almost always points at a real bug.
 Upgrade with:
 
 ```bash
-pip install -U -i https://test.pypi.org/simple/ "ferrifuzz==0.2.0"
+pip install -U ferrifuzz
 ```
 
 ## Breaking changes and how to migrate

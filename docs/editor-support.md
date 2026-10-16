@@ -99,4 +99,4 @@ reduction, ...) are offered as dropdowns. There are 33 snippets:
 | `ffplotvar` `ffplotout` `ffplotcurve` `ffsurface` `ffshow` | `ferrifuzz.plot`: terms, output set, response curve, 3‑D surface, `plt.show()` |
 | `fffts` | fuzzy time series forecast + `evaluate` on the Alabama enrollment data |
 
-The plotting snippets need matplotlib (`pip install numpy matplotlib`).
+The plotting snippets need matplotlib (`pip install "ferrifuzz[plot]"`).
