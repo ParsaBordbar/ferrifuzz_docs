@@ -36,5 +36,4 @@ of its own domain (`baseUrl: '/'`).
 
 While testing, every page has `<meta name="robots" content="noindex">` so search engines skip
 the preview. When going public, deploy with `DOCS_PUBLIC=1` in front of the command.
-Install commands point at TestPyPI (`ferrifuzz==0.2.0`) until the PyPI release; search for
-`test.pypi` in `docs/` and `src/components/InstallCommand` to switch them.
+Install commands point at PyPI (`pip install ferrifuzz`).
