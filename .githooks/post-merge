@@ -1,0 +1,21 @@
+#!/bin/sh
+# Auto-deploy on the VPS: `git pull` → rebuild the docs → sync into the web root.
+# Enable once per clone:  git config core.hooksPath .githooks
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+CHANGED="$(git diff-tree -r --name-only ORIG_HEAD HEAD 2>/dev/null)"
+
+echo ""
+echo "🚀 post-merge deploy"
+
+if [ -z "$CHANGED" ]; then
+  CHANGED="docs/"
+fi
+
+if echo "$CHANGED" | grep -qE '^(docs/|src/|static/|docusaurus\.config\.ts$|sidebars\.ts$|package(-lock)?\.json$|deploy/deploy-docs\.sh$)'; then
+  sh "$ROOT/deploy/deploy-docs.sh" || { echo "❌ docs deploy failed"; exit 1; }
+else
+  echo "· docs unchanged, skip"
+fi
+
+echo "✅ deploy done"

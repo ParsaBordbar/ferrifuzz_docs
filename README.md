@@ -14,53 +14,46 @@ npm run typecheck
 - Notes for maintainers that must not be shown to readers go in HTML comments.
   `<!-- TODO(0.2.0-api): ... -->` marks claims to re-check against a library release.
 
-## Deploying
+## Deploying (VPS)
 
-The site is static: `npm run build` writes plain HTML/CSS/JS to `build/`, served from the root
-of **https://ferrifuzz.bubblelamp.space** (`baseUrl: '/'`).
+The site is static: `npm run build` writes plain HTML/CSS/JS to `build/`, served by nginx from
+the root of **https://ferrifuzz.bubblelamp.space**. The repo is cloned on the VPS and a git
+hook redeploys on every `git pull`, like bt-mvp.
 
-### GitHub Pages (default)
+### One-time setup on the VPS
 
-[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds every pull request
-(type check + broken-link check) and deploys every push to `main` to GitHub Pages.
+Needs Node 20+, nginx, certbot and rsync.
 
-One-time setup:
-
-1. **Repository → Settings → Pages:** Source **GitHub Actions**. Custom domain
-   `ferrifuzz.bubblelamp.space`, save, then tick **Enforce HTTPS** once the certificate is
-   issued (can take up to an hour). Pages on a private repository needs a paid GitHub plan,
-   and the published site is public either way.
-2. **Cloudflare DNS for bubblelamp.space:** add a `CNAME` record, name `ferrifuzz`, target
-   `parsabordbar.github.io`, proxy status **DNS only** (grey cloud) so GitHub can issue the
-   HTTPS certificate.
-3. **Protect the domain:** GitHub → your profile → Settings → Pages → *Add a domain* →
-   `bubblelamp.space`, and add the `TXT` record it shows to Cloudflare. This stops other
-   GitHub users from claiming your subdomains.
-4. Push to `main` (or *Actions → Docs → Run workflow*). Check https://ferrifuzz.bubblelamp.space.
-
-`static/CNAME` carries the domain too, so the build stays correct if Pages is ever switched
-to branch-based deployment.
-
-### Own server (alternative)
-
-1. **Server, once:** create the web root and install the nginx site from
-   [`deploy/nginx.conf`](deploy/nginx.conf) (follow the commands at the top of the file,
-   including `certbot` for HTTPS):
-   ```bash
-   sudo mkdir -p /var/www/ferrifuzz-docs && sudo chown "$USER" /var/www/ferrifuzz-docs
+1. **DNS (Cloudflare, bubblelamp.space):** `A` record `ferrifuzz` → the VPS IP, proxy status
+   **DNS only** while certbot issues the certificate.
+2. **Clone and enable the hook:**
+   ```sh
+   git clone git@github.com:ParsaBordbar/ferrifuzz_docs.git ~/ferrifuzz_docs && cd ~/ferrifuzz_docs
+   git config core.hooksPath .githooks && chmod +x .githooks/post-merge
    ```
-   DNS: an `A` record `ferrifuzz` → the server's IP instead of the GitHub CNAME.
-2. **Every deploy, from this folder:**
-   ```bash
-   DOCS_URL=https://ferrifuzz.bubblelamp.space DEPLOY_TARGET=user@server:/var/www/ferrifuzz-docs deploy/deploy.sh
-   ```
+3. **nginx + HTTPS:** follow the commands at the top of
+   [`deploy/nginx/ferrifuzz.bubblelamp.space.conf`](deploy/nginx/ferrifuzz.bubblelamp.space.conf).
+4. **First deploy:** `sh deploy/deploy-docs.sh`, then run the `curl` checks from the nginx file.
+
+### Every deploy
+
+Push to the branch the VPS tracks, then on the VPS:
+
+```sh
+cd ~/ferrifuzz_docs && git pull
+```
+
+`.githooks/post-merge` runs [`deploy/deploy-docs.sh`](deploy/deploy-docs.sh) when site files
+changed (`docs/`, `src/`, `static/`, config, `package*.json`): `npm ci`, build, rsync into
+`/var/www/ferrifuzz-docs`. Hashed assets from the previous build are kept for a week so open
+tabs keep working. Settings go in `deploy/deploy.env` on the VPS (not committed); see the top
+of the script.
 
 ### Search engines
 
 While testing, every page has `<meta name="robots" content="noindex">` so search engines skip
-the preview. When going public, set the repository variable `DOCS_PUBLIC` to `1`
-(*Settings → Secrets and variables → Actions → Variables*) and re-run the workflow, or put
-`DOCS_PUBLIC=1` in front of the deploy command when self-hosting.
+the preview. When going public, add `DOCS_PUBLIC=1` to `deploy/deploy.env` on the VPS and run
+`sh deploy/deploy-docs.sh`.
 
 Install commands point at TestPyPI (`ferrifuzz==0.2.0`) until the PyPI release; branch
 `docs/pypi-launch` switches them to `pip install ferrifuzz`.
