@@ -9,15 +9,12 @@ keywords: ['ferrifuzz faq', 'troubleshooting']
 
 ## Installation
 
-### `pip install ferrifuzz` installs nothing / an old version
+### `pip install ferrifuzz` installs an old version or fails
 
-The 0.2.0 demo release is on **TestPyPI**, not PyPI:
-
-```bash
-pip install -i https://test.pypi.org/simple/ "ferrifuzz==0.2.0"
-```
-
-See [Installation](./getting-started/installation.md).
+Check `python --version` (3.9 or newer is required) and upgrade pip with
+`python -m pip install --upgrade pip`. If you installed the 0.2.0 pre-release from TestPyPI,
+`pip install -U ferrifuzz` replaces it with the PyPI release. See
+[Installation](./getting-started/installation.md).
 
 ### Do I need numpy?
 

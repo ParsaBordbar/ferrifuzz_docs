@@ -5,7 +5,7 @@
 # Optional settings in deploy/deploy.env (not committed):
 #   DOCS_WWW=/var/www/ferrifuzz-docs              web root nginx serves
 #   DOCS_URL=https://ferrifuzz.bubblelamp.space   must match server_name in deploy/nginx/
-#   DOCS_PUBLIC=1                                 let search engines index the site
+#   DOCS_NOINDEX=1                                ask search engines not to index the site
 set -e
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -13,7 +13,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 WWW="${DOCS_WWW:-/var/www/ferrifuzz-docs}"
 export DOCS_URL="${DOCS_URL:-https://ferrifuzz.bubblelamp.space}"
-export DOCS_PUBLIC="${DOCS_PUBLIC:-}"
+export DOCS_NOINDEX="${DOCS_NOINDEX:-}"
 
 echo "┌── Deploy docs ($DOCS_URL)"
 cd "$ROOT"

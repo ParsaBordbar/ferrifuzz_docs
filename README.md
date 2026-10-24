@@ -95,5 +95,4 @@ of the script.
 The VPS is a mirror: its pages are indexable but their canonical URLs point at GitHub Pages
 (see [Build settings and SEO](#build-settings-and-seo)), so search engines list only one copy.
 
-Install commands point at TestPyPI (`ferrifuzz==0.2.0`) until the PyPI release; branch
-`docs/pypi-launch` switches them to `pip install ferrifuzz`.
+Install commands point at PyPI (`pip install ferrifuzz`).

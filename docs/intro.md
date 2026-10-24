@@ -16,7 +16,7 @@ Rust. It was written with fuzzy‑systems courses in mind: rules are plain Engli
 are reproducible, and mistakes produce error messages that tell you what went wrong.
 
 ```bash
-pip install -i https://test.pypi.org/simple/ "ferrifuzz==0.2.0"
+pip install ferrifuzz
 ```
 
 ```python

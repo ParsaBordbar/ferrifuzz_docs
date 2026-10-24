@@ -8,7 +8,7 @@ keywords: ['plot membership functions', 'matplotlib', 'control surface']
 # `ferrifuzz.plot`
 
 Quick matplotlib figures for coursework and reports. matplotlib and numpy are
-**optional**: install them with `pip install numpy matplotlib` (after the PyPI release, `pip install "ferrifuzz[plot]"` also works).
+**optional**: install them with `pip install "ferrifuzz[plot]"` (or `pip install numpy matplotlib`).
 The module is only imported when you first use it, and without matplotlib a call raises
 an `ImportError` that says what to install.
 

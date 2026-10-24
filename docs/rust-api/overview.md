@@ -23,8 +23,8 @@ ferrifuzz = { git = "https://github.com/ParsaBordbar/ferrifuzz" }
 ```
 
 :::note
-The repository is private for now. You need read access to it, or a local checkout used as a
-path dependency: `ferrifuzz = { path = "../ferrifuzz/crates/ferrifuzz" }`.
+To work against a local checkout instead, use a path dependency:
+`ferrifuzz = { path = "../ferrifuzz/crates/ferrifuzz" }`.
 :::
 
 ## A first program
