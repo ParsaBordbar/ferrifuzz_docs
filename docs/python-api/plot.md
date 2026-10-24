@@ -1,7 +1,8 @@
 ---
 title: 'Plotting (Python)'
 sidebar_label: 'Plotting'
-description: 'ferrifuzz.plot: matplotlib helpers to draw variables, output sets, response curves and control surfaces.'
+description: 'Python API for ferrifuzz.plot: matplotlib helpers to draw linguistic variables, output sets, response curves and 3-D control surfaces.'
+keywords: ['plot membership functions', 'matplotlib', 'control surface']
 ---
 
 # `ferrifuzz.plot`

@@ -1,7 +1,8 @@
 ---
 title: Operators & hedges (Rust)
 sidebar_label: Operators & hedges
-description: TNorm, TConorm and Complement (all formulas and accepted names), plus Hedge power modifiers.
+description: 'Rust API for fuzzy operators in ferrifuzz: TNorm, TConorm and Complement with all formulas and accepted names, plus Hedge power modifiers.'
+keywords: ['t-norm rust', 't-conorm', 'fuzzy hedges']
 ---
 
 # Operators & hedges

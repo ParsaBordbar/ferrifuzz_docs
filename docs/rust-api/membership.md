@@ -1,7 +1,8 @@
 ---
 title: Membership functions (Rust)
 sidebar_label: Membership functions
-description: The MembershipFunction trait, the six type-1 shapes, Type1MF, interval type-2 IT2MF and the mf constructors.
+description: 'Rust API for membership functions in ferrifuzz: the MembershipFunction trait, the six type-1 shapes, Type1MF, interval type-2 IT2MF and the mf constructors.'
+keywords: ['membership functions rust', 'MembershipFunction trait', 'IT2MF']
 ---
 
 # Membership functions

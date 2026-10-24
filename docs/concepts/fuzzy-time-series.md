@@ -1,7 +1,8 @@
 ---
 title: Fuzzy time series
 sidebar_label: Fuzzy time series
-description: Chen's (1996) fuzzy time series method step by step, first vs high order, with a worked example in ferrifuzz.
+description: 'Chen''s (1996) fuzzy time series forecasting method step by step: partitions, fuzzy logical relationships and groups, first vs high order, with a worked example in ferrifuzz.'
+keywords: ['fuzzy time series', 'chen fuzzy time series', 'fuzzy logical relationship', 'forecasting']
 ---
 
 # Fuzzy time series

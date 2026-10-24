@@ -1,7 +1,8 @@
 ---
 title: Interval type-2 (Rust)
 sidebar_label: Interval type-2
-description: Interval type-2 inference in Rust, covering how FuzzySystem runs IT2 systems and the Karnik–Mendel, center-of-sets and height type-reduction functions.
+description: 'Interval type-2 fuzzy inference in Rust: how FuzzySystem runs IT2 systems, and the Karnik–Mendel, center-of-sets and height type-reduction functions.'
+keywords: ['interval type-2 rust', 'karnik-mendel', 'type reduction']
 ---
 
 # Interval type-2

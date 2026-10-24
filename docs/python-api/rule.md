@@ -1,7 +1,8 @@
 ---
 title: 'Rule & Clause (Python)'
 sidebar_label: 'Rule & Clause'
-description: 'ff.Rule and ff.Clause: building fuzzy IF-THEN rules from strings or tuples, and inspecting them.'
+description: 'Python API for ff.Rule and ff.Clause: build fuzzy IF-THEN rules from strings or tuples, inspect them, and add them to a FuzzySystem.'
+keywords: ['fuzzy rules python', 'Rule.from_string']
 ---
 
 # `Rule` and `Clause`

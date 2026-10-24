@@ -1,7 +1,8 @@
 ---
 title: 'FuzzySystem (Python)'
 sidebar_label: 'FuzzySystem'
-description: 'ff.FuzzySystem: constructor options, building a rule base, compute, compute_batch, interval output, rule strengths, output sets and validation.'
+description: 'Python API for ff.FuzzySystem: Mamdani, Sugeno and interval type-2 options, building a rule base, compute, compute_batch, compute_interval, rule strengths, output sets and validation.'
+keywords: ['FuzzySystem', 'mamdani python', 'sugeno python', 'type-2 fuzzy python']
 ---
 
 # `FuzzySystem`

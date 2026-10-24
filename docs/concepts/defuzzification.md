@@ -1,7 +1,8 @@
 ---
 title: Defuzzification
 sidebar_label: Defuzzification
-description: Centroid, bisector, mean/smallest/largest of maxima and weighted average, with formulas and the sampling-grid caveat.
+description: 'Defuzzification methods in ferrifuzz: centroid, bisector, mean/smallest/largest of maxima and weighted average, with formulas and the sampling-grid caveat.'
+keywords: ['defuzzification', 'centroid', 'bisector', 'mean of maxima']
 ---
 
 # Defuzzification

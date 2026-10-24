@@ -1,7 +1,8 @@
 ---
 title: 'How to cite & license'
 sidebar_label: 'Cite & License'
-description: 'How to cite ferrifuzz (BibTeX and plain text), and what the Apache-2.0 license and NOTICE file require.'
+description: 'How to cite ferrifuzz in a paper, report or thesis (BibTeX and plain text), which method papers to cite, and what the Apache-2.0 license and NOTICE file require.'
+keywords: ['cite ferrifuzz', 'bibtex', 'apache-2.0']
 ---
 
 # How to cite & license
@@ -18,7 +19,7 @@ repository"** button reads it once the repository is public.
 @software{bordbar_ferrifuzz_2026,
   author    = {Bordbar, Parsa},
   title     = {ferrifuzz: fast fuzzy logic for Python and Rust},
-  version   = {0.2.0},
+  version   = {0.2.1},
   year      = {2026},
   month     = oct,
   date      = {2026-10-04},
@@ -33,7 +34,7 @@ and add `howpublished = {\url{https://github.com/ParsaBordbar/ferrifuzz}}`.
 
 ### Plain text
 
-> Bordbar, P. (2026). *ferrifuzz: fast fuzzy logic for Python and Rust* (Version 0.2.0)
+> Bordbar, P. (2026). *ferrifuzz: fast fuzzy logic for Python and Rust* (Version 0.2.1)
 > [Computer software]. https://github.com/ParsaBordbar/ferrifuzz
 
 Please cite the **version you used** (`import ferrifuzz; ferrifuzz.__version__`) so your

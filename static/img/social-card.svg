@@ -1,0 +1,27 @@
+<!-- Source of social-card.png (og:image, 1200x630). See README.md to regenerate. -->
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0f1220"/>
+
+  <!-- Gaussian membership functions, after hero.svg -->
+  <g fill="none" stroke-width="5" opacity="0.28">
+    <path d="M0 560 C150 556 195 470 270 380 C345 300 420 300 495 380 C570 470 615 556 720 560" stroke="#7c83ff"/>
+    <path d="M300 560 C435 545 510 410 600 320 C690 250 810 250 900 320 C990 410 1065 545 1200 560" stroke="#a68cff"/>
+    <path d="M480 560 C585 552 645 465 720 395 C795 330 870 330 945 395 C1020 465 1080 552 1200 560" stroke="#ff9f6e"/>
+  </g>
+  <line x1="0" y1="560" x2="1200" y2="560" stroke="#ffffff" stroke-opacity="0.15" stroke-width="2"/>
+
+  <!-- Logo (logo.svg without its background) -->
+  <g transform="translate(80 70) scale(0.75)">
+    <path d="M40 170 C60 90, 90 60, 128 60 C110 110, 95 150, 88 170 Z" fill="#7c83ff" fill-opacity="0.75"/>
+    <path d="M88 170 C100 70, 128 40, 168 70 C160 120, 145 155, 128 170 Z" fill="#a68cff" fill-opacity="0.8"/>
+    <path d="M128 170 C155 60, 195 80, 216 170 Z" fill="#ff9f6e" fill-opacity="0.75"/>
+    <line x1="36" y1="170" x2="220" y2="170" stroke="#ffffff" stroke-opacity="0.3" stroke-width="3"/>
+  </g>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="270" y="178" font-size="92" font-weight="700" fill="#e6e8ff">Ferrifuzz</text>
+    <text x="84" y="290" font-size="52" font-weight="600" fill="#ffffff">Fuzzy logic for Python and Rust</text>
+    <text x="84" y="350" font-size="30" fill="#b8bcff">Mamdani · Sugeno/TSK · Interval type-2 · Fuzzy time series</text>
+    <text x="84" y="470" font-size="30" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#ff9f6e">$ pip install ferrifuzz</text>
+  </g>
+</svg>

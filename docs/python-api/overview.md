@@ -1,7 +1,8 @@
 ---
 title: 'Python API overview'
 sidebar_label: 'Overview'
-description: 'Module layout of the ferrifuzz Python package and every valid string option for method parameters.'
+description: 'Overview of the ferrifuzz Python API: module layout, conventions, every valid string option for method parameters, and a complete example.'
+keywords: ['ferrifuzz python api', 'fuzzy logic python library']
 ---
 
 # Python API overview
@@ -26,7 +27,7 @@ series, metrics and plotting.
 | `ff.metrics` | `rmse`, `mae`, `mape`, `score` | [Metrics](./metrics.md) |
 | `ff.plot` | matplotlib helpers (optional, imported on first use) | [Plotting](./plot.md) |
 | `ff.FuzzyError`, `ff.InputError`, `ff.ModelError`, `ff.RuleSyntaxError` | exception classes (all `ValueError` subclasses) | [Reading error messages](../getting-started/error-messages.md) |
-| `ff.__version__` | installed version string, e.g. `"0.2.0"` | |
+| `ff.__version__` | installed version string, e.g. `"0.2.1"` | |
 
 The package ships type stubs (`_core.pyi`, `py.typed`), so editors and `mypy` see every
 signature and autocomplete the string options below.

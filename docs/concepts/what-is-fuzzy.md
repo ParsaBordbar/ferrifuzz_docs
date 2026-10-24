@@ -1,7 +1,8 @@
 ---
 title: What is fuzzy logic?
 sidebar_label: What is fuzzy logic?
-description: Crisp sets vs fuzzy sets, degrees of membership, and the four stages of a fuzzy inference system.
+description: 'An introduction to fuzzy logic: crisp sets vs fuzzy sets, degrees of membership, and the four stages of a fuzzy inference system, from fuzzification to defuzzification.'
+keywords: ['what is fuzzy logic', 'fuzzy sets', 'degree of membership', 'fuzzy inference system']
 ---
 
 # What is fuzzy logic?

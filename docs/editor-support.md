@@ -1,36 +1,72 @@
 ---
 title: 'Editor support (VS Code)'
 sidebar_label: 'Editor Support'
-description: 'The ferrifuzz VS Code extension: rule-string highlighting inside Python, snippets for the whole API, and how to install it from a .vsix file.'
+description: 'The ferrifuzz VS Code extension: completion, checks and highlighting inside fuzzy rule strings, snippets for the whole API, and a Python interpreter check.'
+keywords: ['ferrifuzz vs code extension', 'visual studio code', 'rule highlighting']
 ---
 
 # Editor support (VS Code)
 
-The **Ferrifuzz** VS Code extension makes rule strings readable and saves typing:
+The **Ferrifuzz** VS Code extension helps you write rules and catches mistakes as you type:
 
-- **Rule highlighting**: inside Python strings, rule keywords, variables, `NOT`, hedges and
-  terms each get their own color.
+- **Rule completion**: variables, terms, hedges and keywords inside rule strings.
+- **Rule checks**: unknown terms, misspelled variables and inputs / outputs on the wrong side
+  of `THEN`, with "did you mean" quick fixes.
+- **Rule highlighting**: keywords, variables, `NOT`, hedges and terms each get their own color.
 - **Snippets** for every part of the API, with dropdowns for method names.
+- **Interpreter check**: a warning when VS Code's Python has no ferrifuzz, so completions
+  can't work.
 
-Method‑name arguments (`defuzz_method=`, `and_method=`, ...) also autocomplete without the
-extension, through the type stubs shipped with the `ferrifuzz` package (Pylance/Pyright).
+Hover docs and completion of the API itself (`ff.`, `system.compute(`, `defuzz_method="` →
+`centroid`, ...) need no extension: they come from the type stubs shipped with the `ferrifuzz`
+package, in VS Code (Pylance), PyCharm and Jupyter.
 
 ## Install
 
-The extension is not on the VS Code Marketplace yet. Install it from the `.vsix` package
-built from the ferrifuzz repository:
+Search for **Ferrifuzz** in the Extensions view, or:
 
-```bash
-cd editors/vscode
-npm install
-npm run package                                  # → ferrifuzz-vscode-<version>.vsix
-code --install-extension ferrifuzz-vscode-*.vsix
+- VS Code: [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ParsaBordbar2003.ferrifuzz), or `code --install-extension ParsaBordbar2003.ferrifuzz`
+- Cursor, VSCodium, Windsurf: [Open VSX](https://open-vsx.org/?search=ferrifuzz)
+
+It needs the Python extension and ferrifuzz 0.2.0 or newer in the interpreter VS Code uses
+(`pip install ferrifuzz`).
+
+## Rule completion and checks
+
+Inside a rule string the editor suggests what can come next, read from the `ff.Variable(...)`
+definitions, `var["term"] = ...` / `.automf(...)` terms and `add_input` / `add_output` calls in
+the same file. Type a space to see the next suggestions:
+
+| After | Suggests |
+|---|---|
+| `IF` / `AND` / `OR` / `(` | input variables |
+| `THEN` / `AND` after `THEN` | output variables |
+| a variable | `IS` |
+| `IS` / `IS NOT` | that variable's terms, `NOT`, hedges |
+| a hedge | that variable's terms |
+| a term | `AND` `OR` `THEN` before `THEN`; `AND` `WITH` after |
+
+Rule strings that go into a system in the same file (`system += "..."`, `add_rule`,
+`add_rules`) are checked as you type:
+
+<!-- skip-check -->
+```python
+system += "IF service IS excelent THEN tip IS high"   # 'service' has no term 'excelent'. Did you mean 'excellent'?
+system += "IF servise IS good THEN tip IS medium"     # Unknown variable 'servise'. Did you mean 'service'?
+system += "IF tip IS low THEN service IS good"        # 'tip' is an output; before THEN use an input
 ```
 
-If you were given a ready-made `ferrifuzz-vscode-0.2.0.vsix` (for example by your
-instructor), skip the build: run `code --install-extension ferrifuzz-vscode-0.2.0.vsix`,
-or in VS Code open the Extensions view, click **⋯ → Install from VSIX…** and pick the file.
-Reload the window afterwards.
+Press <kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+<kbd>.</kbd> on a "did you mean" warning to apply the fix.
+The checks stay quiet about anything the file does not pin down: variables imported from
+another module, terms added in a loop, rules parsed on their own with `Rule.from_string`.
+
+## Interpreter check
+
+Completions and hover docs come from the installed package, so they only work when the
+interpreter selected in VS Code has ferrifuzz. When a file imports ferrifuzz and that
+interpreter has none, or a version older than 0.2.0, a warning offers **Use .venv** (when the
+project's `.venv` has ferrifuzz) or **Select Interpreter**. Run *Ferrifuzz: Check Interpreter
+for Completions* from the Command Palette to check at any time.
 
 ## Rule highlighting
 

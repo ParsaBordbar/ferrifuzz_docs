@@ -2,6 +2,7 @@
 title: 'Tutorial: Type-1 vs Interval Type-2 Under Noise'
 sidebar_label: 'Type-1 vs interval type-2'
 description: 'Build the same 5x5 controller with type-1 and interval type-2 Gaussian terms, then compare gain and output spread under input noise for KM, center-of-sets and height type reduction.'
+keywords: ['type-1 vs type-2 fuzzy', 'interval type-2 fuzzy controller', 'type-2 fuzzy python', 'noise robustness']
 ---
 
 # Type-1 vs interval type-2 under noise

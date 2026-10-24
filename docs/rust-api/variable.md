@@ -1,7 +1,8 @@
 ---
 title: Variables (Rust)
 sidebar_label: Variables
-description: Linguistic variables in Rust, covering Variable, Term, fuzzification, automf and default_term_names.
+description: 'Rust API for linguistic variables in ferrifuzz: Variable, Term, fuzzification, automf and default_term_names.'
+keywords: ['linguistic variable rust', 'fuzzification']
 ---
 
 # Variables

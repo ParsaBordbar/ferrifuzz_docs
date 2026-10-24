@@ -1,7 +1,8 @@
 ---
 title: Linguistic variables and hedges
 sidebar_label: Linguistic variables & hedges
-description: Variables whose values are words, how fuzzification works, how to partition a universe, and how hedges like "very" and NOT modify terms.
+description: 'Linguistic variables whose values are words, how fuzzification works, how to partition a universe of discourse, and how hedges like "very" and NOT modify fuzzy terms.'
+keywords: ['linguistic variable', 'linguistic hedges', 'fuzzification', 'universe of discourse']
 ---
 
 # Linguistic variables and hedges

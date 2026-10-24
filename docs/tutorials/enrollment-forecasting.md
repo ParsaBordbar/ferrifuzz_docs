@@ -2,6 +2,7 @@
 title: 'Tutorial: Enrollment Forecasting with Fuzzy Time Series'
 sidebar_label: 'Enrollment forecasting (FTS)'
 description: "Chen's fuzzy time series on the University of Alabama enrollment data: in-sample fits, a train/test split, and why FTS cannot extrapolate."
+keywords: ['fuzzy time series python', 'enrollment forecasting', 'chen 1996', 'forecasting']
 ---
 
 # Enrollment forecasting with fuzzy time series

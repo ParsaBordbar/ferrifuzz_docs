@@ -1,7 +1,8 @@
 ---
 title: Interval type-2 fuzzy sets
 sidebar_label: Interval type-2
-description: Footprint of uncertainty, interval firing strengths, and Karnik–Mendel, center-of-sets and height type reduction.
+description: 'Interval type-2 fuzzy logic explained: the footprint of uncertainty, interval firing strengths, and Karnik–Mendel, center-of-sets and height type reduction.'
+keywords: ['interval type-2 fuzzy', 'type-2 fuzzy logic', 'footprint of uncertainty', 'karnik-mendel', 'type reduction']
 ---
 
 # Interval type-2 fuzzy sets

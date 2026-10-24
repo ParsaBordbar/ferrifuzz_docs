@@ -1,7 +1,8 @@
 ---
 title: Metrics (Rust)
 sidebar_label: Metrics
-description: RMSE, MAE and MAPE forecasting metrics in Rust, plus the Scores struct.
+description: 'RMSE, MAE and MAPE forecasting metrics in the ferrifuzz Rust crate, plus the Scores struct and edge cases.'
+keywords: ['RMSE', 'MAE', 'MAPE']
 ---
 
 # Metrics

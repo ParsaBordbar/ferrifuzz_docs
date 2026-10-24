@@ -1,7 +1,8 @@
 ---
 title: 'Membership functions (Python)'
 sidebar_label: 'Membership functions'
-description: 'ff.mf factory functions, Type1MF, IT2MF and the stand-alone shape classes.'
+description: 'Python API for membership functions in ferrifuzz: the ff.mf factory functions, Type1MF with vectorized evaluation, interval type-2 IT2MF and the stand-alone shape classes.'
+keywords: ['membership functions python', 'Type1MF', 'IT2MF']
 ---
 
 # Membership functions

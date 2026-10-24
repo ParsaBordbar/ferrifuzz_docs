@@ -1,0 +1,6 @@
+# Only read at a host root, i.e. on ferrifuzz.bubblelamp.space. The canonical copy of the
+# docs is https://parsabordbar.github.io/ferrifuzz_docs/.
+User-agent: *
+Allow: /
+
+Sitemap: https://parsabordbar.github.io/ferrifuzz_docs/sitemap.xml

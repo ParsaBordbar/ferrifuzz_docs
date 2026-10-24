@@ -1,7 +1,8 @@
 ---
 title: FuzzySystem (Rust)
 sidebar_label: FuzzySystem
-description: The inference engine in Rust. Covers builder settings, model building, validation, compute and its error cases, batch inference, and the inspection helpers.
+description: 'Rust API for FuzzySystem, the ferrifuzz inference engine: builder settings, building the model, validation, compute and its error cases, batch inference and inspection helpers.'
+keywords: ['FuzzySystem rust', 'mamdani rust', 'sugeno rust']
 ---
 
 # `FuzzySystem`

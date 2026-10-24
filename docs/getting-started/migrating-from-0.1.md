@@ -1,7 +1,8 @@
 ---
 title: 'Migrating from 0.1'
 sidebar_label: 'Migrating from 0.1'
-description: 'What changed between ferrifuzz 0.1 and 0.2, and how to update code written for 0.1.'
+description: 'Upgrade guide from ferrifuzz 0.1 to 0.2: breaking API changes, code patterns to update, bug fixes that change results, and what is new in 0.2.'
+keywords: ['ferrifuzz 0.2', 'migration guide', 'upgrade']
 ---
 
 # Migrating from 0.1

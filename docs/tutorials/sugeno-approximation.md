@@ -2,6 +2,7 @@
 title: 'Tutorial: Sugeno Function Approximation'
 sidebar_label: 'Sugeno approximation'
 description: 'Fit a first-order Sugeno (TSK) model to y = sin(x) + 0.1x by least squares on the normalized rule firing strengths (the ANFIS LSE step).'
+keywords: ['sugeno fuzzy model', 'TSK', 'ANFIS', 'function approximation', 'least squares']
 ---
 
 # Sugeno function approximation with least squares

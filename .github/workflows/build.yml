@@ -1,7 +1,7 @@
 name: Docs
 
 # Type check and build (fails on broken links) for every pull request and push to main.
-# Deploying to the VPS is manual: deploy/deploy.sh.
+# Deploying: GitHub Pages via pages.yml; the VPS via deploy/deploy-docs.sh.
 
 on:
   push:

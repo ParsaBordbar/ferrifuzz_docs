@@ -1,7 +1,8 @@
 ---
 title: Rules (Rust)
 sidebar_label: Rules
-description: Clause and Rule in Rust, covering the rule-string parser, DNF antecedents, multi-output consequents, NOT, hedges and weights.
+description: 'Rust API for fuzzy rules in ferrifuzz: Clause and Rule, the rule-string parser, DNF antecedents, multi-output consequents, NOT, hedges and weights.'
+keywords: ['fuzzy rules rust', 'rule parser']
 ---
 
 # Rules

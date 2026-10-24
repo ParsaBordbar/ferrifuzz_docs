@@ -1,7 +1,8 @@
 ---
-title: 'Ferrifuzz'
+title: 'Ferrifuzz: fuzzy logic for Python and Rust'
 sidebar_label: 'Introduction'
-description: 'Fuzzy logic for Python and Rust: membership functions, plain-text rules, Mamdani, Sugeno/TSK and interval type-2 inference, and fuzzy time series.'
+description: 'Ferrifuzz is an open-source fuzzy logic library for Python and Rust: membership functions, plain-text rules, Mamdani, Sugeno/TSK and interval type-2 inference, and fuzzy time series.'
+keywords: ['fuzzy logic', 'fuzzy logic python', 'fuzzy logic rust', 'fuzzy inference system', 'mamdani', 'sugeno', 'interval type-2', 'fuzzy time series']
 slug: /
 ---
 
@@ -54,7 +55,7 @@ print(system({"service": 7.5}))   # {'tip': 22.6079...}
   (Karnik–Mendel, center‑of‑sets, height type reduction). Six defuzzification methods.
 - **Fuzzy time series** forecasting (Chen 1996, first and high order) with RMSE/MAE/MAPE metrics.
 - **Batch inference** over NumPy columns, optional **matplotlib plots**, and a
-  **VS Code extension** that highlights rule strings.
+  [**VS Code extension**](./editor-support.md) that completes, checks and highlights rule strings.
 
 ## The pipeline at a glance
 

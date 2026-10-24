@@ -1,7 +1,8 @@
 ---
 title: 'Reading error messages'
 sidebar_label: 'Reading error messages'
-description: 'What ferrifuzz errors mean, which exception each one raises, and how to fix the common ones.'
+description: 'What each ferrifuzz error means (FuzzyError, InputError, ModelError, RuleSyntaxError), when it is raised, and how to fix missing inputs, misspelled terms, bad rules and invalid membership functions.'
+keywords: ['ferrifuzz errors', 'FuzzyError', 'InputError', 'ModelError', 'RuleSyntaxError']
 ---
 
 # Reading error messages

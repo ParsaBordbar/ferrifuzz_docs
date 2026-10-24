@@ -1,7 +1,8 @@
 ---
-title: 'Tutorial: Closed-Loop Tank Level Control'
+title: 'Tutorial: Closed-Loop Fuzzy Tank Level Control'
 sidebar_label: 'Tank level controller'
-description: 'Close the loop around a nonlinear water tank with a 5x5 fuzzy incremental PD controller and compare it with a PI controller.'
+description: 'Close the loop around a nonlinear water tank with a 5x5 fuzzy incremental PD controller in Python and compare it with a PI controller.'
+keywords: ['fuzzy controller', 'fuzzy PD controller', 'fuzzy control python', 'tank level control']
 ---
 
 # Closed-loop control: water tank level

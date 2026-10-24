@@ -1,7 +1,8 @@
 ---
 title: Fuzzy time series (Rust)
 sidebar_label: Fuzzy time series
-description: Chen (1996) first- and high-order fuzzy time series forecasting in Rust, covering FuzzyTimeSeries, Partition, Flrg and equal_width_partitions.
+description: 'Chen (1996) first- and high-order fuzzy time series forecasting in Rust: FuzzyTimeSeries, Partition, Flrg and equal_width_partitions.'
+keywords: ['fuzzy time series rust', 'forecasting']
 ---
 
 # Fuzzy time series

@@ -1,7 +1,8 @@
 ---
 title: 'Variable (Python)'
 sidebar_label: 'Variable'
-description: 'ff.Variable: a linguistic variable with a universe of discourse and named terms; fuzzification and automf.'
+description: 'Python API for ff.Variable, a linguistic variable with a universe of discourse and named terms: dictionary-style terms, fuzzification, automf and plotting.'
+keywords: ['linguistic variable python', 'fuzzification', 'automf']
 ---
 
 # `Variable`

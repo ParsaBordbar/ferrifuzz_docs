@@ -1,7 +1,8 @@
 ---
 title: 'Fuzzy time series (Python)'
 sidebar_label: 'Fuzzy time series'
-description: 'ferrifuzz.fts.FuzzyTimeSeries: Chen (1996) first- and high-order fuzzy time series forecasting, plus Partition and FLRG.'
+description: 'Python API for ferrifuzz.fts.FuzzyTimeSeries: Chen (1996) first- and high-order fuzzy time series forecasting with fit, forecast, predict and evaluate, plus Partition and FLRG.'
+keywords: ['fuzzy time series python', 'FuzzyTimeSeries', 'forecasting python']
 ---
 
 # `ferrifuzz.fts`

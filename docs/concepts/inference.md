@@ -1,7 +1,8 @@
 ---
 title: Mamdani vs Sugeno inference
 sidebar_label: Mamdani vs Sugeno
-description: How rules fire, how Mamdani implication and aggregation work, how Sugeno/TSK weighted averages work, rule weights, and when to use which.
+description: 'How fuzzy rules fire, how Mamdani implication and aggregation work, how Sugeno/TSK weighted averages work, rule weights, and when to choose Mamdani or Sugeno inference.'
+keywords: ['mamdani inference', 'sugeno inference', 'takagi-sugeno-kang', 'TSK fuzzy model', 'fuzzy implication']
 ---
 
 # Mamdani vs Sugeno (TSK) inference

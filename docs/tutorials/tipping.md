@@ -1,7 +1,8 @@
 ---
-title: 'Tutorial: The Tipping Problem'
+title: 'Tutorial: The Tipping Problem (Mamdani)'
 sidebar_label: 'Tipping problem (Mamdani)'
-description: 'Build the classic two-input Mamdani tipper with OR, NOT and hedges, compare all six defuzzifiers, and compute the control surface.'
+description: 'Build the classic two-input Mamdani fuzzy tipper in Python with OR, NOT and hedges, compare all six defuzzifiers, and compute the control surface.'
+keywords: ['fuzzy tipping problem', 'mamdani python example', 'fuzzy logic tutorial', 'control surface']
 ---
 
 # The tipping problem (Mamdani)

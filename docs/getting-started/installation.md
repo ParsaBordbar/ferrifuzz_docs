@@ -1,7 +1,8 @@
 ---
 title: 'Installation'
 sidebar_label: 'Installation'
-description: 'Install the ferrifuzz Python package from TestPyPI, add the optional numpy and matplotlib extras, or use the Rust crate.'
+description: 'Install the ferrifuzz fuzzy logic package for Python with pip or uv (prebuilt wheels for Python 3.9+, no Rust toolchain needed), add the numpy and matplotlib extras, or use the Rust crate.'
+keywords: ['install ferrifuzz', 'pip install ferrifuzz', 'fuzzy logic python', 'rust crate']
 ---
 
 # Installation

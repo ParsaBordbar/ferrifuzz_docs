@@ -1,7 +1,8 @@
 ---
 title: Rust API overview
 sidebar_label: Overview
-description: Add the ferrifuzz crate, what the prelude re-exports, the error type, and the conventions shared by every module.
+description: 'Overview of the ferrifuzz Rust crate: adding it to Cargo.toml, a first program, what the prelude re-exports, the error type, and the conventions shared by every module.'
+keywords: ['fuzzy logic rust', 'ferrifuzz crate', 'rust fuzzy inference']
 ---
 
 # Rust API overview

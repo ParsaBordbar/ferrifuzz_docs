@@ -1,7 +1,8 @@
 ---
 title: 'Metrics (Python)'
 sidebar_label: 'Metrics'
-description: 'ferrifuzz.metrics: RMSE, MAE, MAPE and score for forecasts or any predicted-vs-observed sequences.'
+description: 'Python API for ferrifuzz.metrics: RMSE, MAE, MAPE and score for fuzzy time series forecasts or any predicted-vs-observed sequences.'
+keywords: ['RMSE', 'MAE', 'MAPE', 'forecast metrics python']
 ---
 
 # `ferrifuzz.metrics`

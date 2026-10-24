@@ -1,0 +1,53 @@
+name: Pages
+
+# Build and publish to GitHub Pages at https://parsabordbar.github.io/ferrifuzz_docs/.
+# One-time setup: Settings → Pages → Source: "GitHub Actions". The site is indexable; set the
+# repository variable DOCS_NOINDEX=1 (Settings → Secrets and variables → Actions → Variables)
+# to hide it from search engines.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  DOCS_URL: https://parsabordbar.github.io
+  DOCS_BASE_URL: /ferrifuzz_docs/
+  DOCS_NOINDEX: ${{ vars.DOCS_NOINDEX }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history for the sitemap's <lastmod> dates
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

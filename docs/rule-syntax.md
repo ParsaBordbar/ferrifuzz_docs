@@ -1,7 +1,8 @@
 ---
 title: 'Rule syntax reference'
 sidebar_label: 'Rule Syntax'
-description: 'The grammar of ferrifuzz rule strings: keywords, AND/OR/NOT, hedges, parentheses, weights, multi-output consequents and common parse errors.'
+description: 'The grammar of ferrifuzz fuzzy IF-THEN rule strings: keywords, AND/OR/NOT, hedges, parentheses, rule weights, multi-output consequents and common parse errors.'
+keywords: ['fuzzy rules', 'if-then rules', 'rule syntax', 'fuzzy rule base']
 ---
 
 # Rule syntax reference

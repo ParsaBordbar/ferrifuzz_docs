@@ -1,7 +1,8 @@
 ---
 title: Membership functions
 sidebar_label: Membership functions
-description: The six type-1 membership function shapes in ferrifuzz, their exact formulas, parameter rules and analytic centers.
+description: 'The six type-1 membership function shapes in ferrifuzz (triangle, trapezoid, gaussian, generalized bell, sigmoid, singleton), with exact formulas, parameter rules and analytic centers.'
+keywords: ['membership function', 'triangular membership function', 'trapezoidal membership function', 'gaussian membership function', 'generalized bell']
 ---
 
 # Membership functions

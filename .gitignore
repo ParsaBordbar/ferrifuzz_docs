@@ -21,3 +21,6 @@ yarn-error.log*
 
 # VPS deploy settings
 /deploy/deploy.env
+
+# Images written by the code samples (scripts/check_python_samples.py)
+/*.png

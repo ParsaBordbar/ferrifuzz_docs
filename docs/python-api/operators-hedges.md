@@ -1,7 +1,8 @@
 ---
 title: 'Operator & Hedge (Python)'
 sidebar_label: 'Operators & hedges'
-description: 'ff.Operator t-norms, t-conorms and complements, and ff.Hedge power modifiers, on type-1 and interval type-2 degrees.'
+description: 'Python API for ff.Operator (t-norms, t-conorms and complements) and ff.Hedge power modifiers, on type-1 and interval type-2 membership degrees.'
+keywords: ['t-norm python', 'fuzzy hedges', 'fuzzy operators python']
 ---
 
 # `Operator` and `Hedge`

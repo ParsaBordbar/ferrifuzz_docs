@@ -1,7 +1,8 @@
 ---
 title: 'FAQ & troubleshooting'
 sidebar_label: 'FAQ'
-description: 'Answers to common ferrifuzz questions: errors, NaN outputs, numpy, interval type-2 settings, grid-valued results, and citing.'
+description: 'Answers to common ferrifuzz questions: installation, error messages, NaN outputs, numpy, interval type-2 settings, Sugeno consequents, fuzzy time series and performance.'
+keywords: ['ferrifuzz faq', 'troubleshooting']
 ---
 
 # FAQ & troubleshooting

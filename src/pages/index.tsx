@@ -30,11 +30,10 @@ function HomepageHeader() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`${siteConfig.title}`}
-      description="Ferrifuzz is a fuzzy logic library with a Rust core and a Python package: Mamdani, Sugeno/TSK, interval type-2 inference and fuzzy time series.">
+      title="Fuzzy logic for Python and Rust"
+      description="Ferrifuzz is an open-source fuzzy logic library for Python and Rust: build Mamdani, Sugeno/TSK and interval type-2 fuzzy inference systems from plain-text rules, and forecast with fuzzy time series.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

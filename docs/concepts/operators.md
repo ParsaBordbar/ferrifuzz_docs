@@ -1,7 +1,8 @@
 ---
 title: Fuzzy operators
 sidebar_label: Fuzzy operators
-description: The six t-norms (AND), six t-conorms (OR) and three complements (NOT) in ferrifuzz, with formulas, names and how inference uses them.
+description: 'Fuzzy AND, OR and NOT in ferrifuzz: the six t-norms, six t-conorms and three complements, with formulas, accepted names and how inference uses them.'
+keywords: ['t-norm', 't-conorm', 'fuzzy complement', 'fuzzy operators']
 ---
 
 # Fuzzy operators: AND, OR, NOT

@@ -1,7 +1,8 @@
 ---
 title: 'Your first fuzzy system in 5 minutes'
 sidebar_label: 'Your first system'
-description: 'Build, run, check and plot a small Mamdani fuzzy system with ferrifuzz.'
+description: 'Quickstart: build, run, check and plot a small Mamdani fuzzy inference system in Python with ferrifuzz, from membership functions and rules to batch evaluation.'
+keywords: ['fuzzy logic python tutorial', 'mamdani python', 'fuzzy inference system', 'quickstart']
 ---
 
 # Your first fuzzy system in 5 minutes
