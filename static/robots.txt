@@ -4,3 +4,8 @@ User-agent: *
 Allow: /
 
 Sitemap: https://ferrifuzz.ir/sitemap.xml
+
+# The Markdown copies of each page are for LLM tools; search results should show the pages.
+User-agent: Googlebot
+User-agent: Bingbot
+Disallow: /*/index.md$

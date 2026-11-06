@@ -1,4 +1,27 @@
+/* Recursive (SIL OFL, see static/fonts/OFL.txt), Latin subset with wght, CASL and MONO axes.
+   Self-hosted so the homepage does not depend on a third-party font CDN. */
+@font-face {
+  font-family: 'Recursive';
+  src: url('../../static/fonts/recursive-latin.woff2') format('woff2');
+  font-weight: 300 1000;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+    U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
+  /* Homepage. The three term colours are the three curves of the logo. */
+  --ff-font: 'Recursive', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ff-ink: #161a2e;
+  --ff-muted: #4b4f73;
+  --ff-line: rgba(22, 26, 46, 0.14);
+  --ff-poor: #4b51b3;
+  --ff-good: #6f4fd8;
+  --ff-excellent: #b4501c;
+  --ff-cta: #b4501c;
+  --ff-cta-ink: #ffffff;
+
   /* Brand primary (fuzzy indigo) */
   --ifm-color-primary: #7C83FF;
   --ifm-color-primary-dark: #6B72E6;
@@ -25,6 +48,16 @@
 
 
 [data-theme='dark'] {
+  /* Homepage */
+  --ff-ink: #f1f2ff;
+  --ff-muted: #a9add6;
+  --ff-line: rgba(230, 232, 255, 0.16);
+  --ff-poor: #8f95ff;
+  --ff-good: #b9a3ff;
+  --ff-excellent: #ff9f6e;
+  --ff-cta: #ff9f6e;
+  --ff-cta-ink: #161a2e;
+
   /* Brand primary (logo core colors) */
   --ifm-color-primary: #7C83FF;
   --ifm-color-primary-dark: #6B72E6;
@@ -53,6 +86,44 @@
 
   /* Highlighted lines */
   --docusaurus-highlighted-code-line-bg: rgba(124, 131, 255, 0.25);
+}
+
+/* Navbar icons, from IconMCP. Masks let them take the link's colour in every state. */
+.nav-icon::before {
+  content: '';
+  display: inline-block;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-right: 0.4rem;
+  vertical-align: -0.2rem;
+  background: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+
+.nav-icon--docs::before {
+  -webkit-mask-image: url('../../static/img/icons/book-open.svg');
+  mask-image: url('../../static/img/icons/book-open.svg');
+}
+
+.nav-icon--tutorials::before {
+  -webkit-mask-image: url('../../static/img/icons/graduation-cap.svg');
+  mask-image: url('../../static/img/icons/graduation-cap.svg');
+}
+
+.nav-icon--python::before {
+  -webkit-mask-image: url('../../static/img/icons/snake.svg');
+  mask-image: url('../../static/img/icons/snake.svg');
+}
+
+.nav-icon--rust::before {
+  -webkit-mask-image: url('../../static/img/icons/crab.svg');
+  mask-image: url('../../static/img/icons/crab.svg');
+}
+
+.nav-icon--github::before {
+  -webkit-mask-image: url('../../static/img/icons/git-repo.svg');
+  mask-image: url('../../static/img/icons/git-repo.svg');
 }
 
 /* Override footer colors */

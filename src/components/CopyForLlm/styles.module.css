@@ -1,0 +1,44 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2.25rem;
+  padding-inline: 0.75rem;
+  border: 1px solid var(--ff-line);
+  border-radius: 0.5rem;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  background: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  background: var(--ff-line);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--ifm-font-color-base);
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  background: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+
+.iconCopy {
+  -webkit-mask-image: url('../../../static/img/icons/copy.svg');
+  mask-image: url('../../../static/img/icons/copy.svg');
+}
+
+.iconCheck {
+  -webkit-mask-image: url('../../../static/img/icons/check.svg');
+  mask-image: url('../../../static/img/icons/check.svg');
+}

@@ -1,0 +1,353 @@
+.hero {
+  padding-block: clamp(2rem, 6vw, 4.5rem) clamp(2.5rem, 5vw, 4rem);
+  font-family: var(--ff-font);
+  font-synthesis: none;
+  color: var(--ff-ink);
+}
+
+.inner {
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding-inline: 2rem;
+  }
+}
+
+/* Words are nowrap and letter widths barely change across weights in Recursive, so dragging
+   shifts letters by a few pixels without rewrapping lines or moving the content below. */
+.headline {
+  margin: 0 0 clamp(1.25rem, 3vw, 2rem);
+  max-width: 15em;
+  font-family: inherit;
+  font-size: clamp(2.5rem, 11.5vw, 6rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: inherit;
+  text-wrap: balance;
+}
+
+/* From here the viewport is wide enough for one sentence per line at a readable size. */
+@media (min-width: 600px) {
+  .headline {
+    font-size: min(8.5vw, 6rem);
+  }
+}
+
+.brand {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+  margin-bottom: clamp(0.875rem, 2vw, 1.25rem);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.logo {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.lead {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.summary {
+  margin: 0;
+  max-width: 34rem;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ff-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.cta {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding-inline: 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  color: var(--ff-cta-ink);
+  background: var(--ff-cta);
+}
+
+.cta:hover {
+  color: var(--ff-cta-ink);
+  text-decoration: none;
+  filter: brightness(1.08);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--ff-ink);
+  outline-offset: 2px;
+}
+
+@media (max-width: 479px) {
+  .cta {
+    flex: 1 1 100%;
+  }
+}
+
+@media (min-width: 997px) {
+  .lead {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3rem;
+    align-items: end;
+  }
+
+  .actions {
+    flex-wrap: nowrap;
+  }
+}
+
+.demoTitle {
+  margin: 0 0 1.25rem;
+  font-family: inherit;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: inherit;
+}
+
+.termNames {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.poorText {
+  color: var(--ff-poor);
+}
+
+.goodText {
+  color: var(--ff-good);
+}
+
+.excellentText {
+  color: var(--ff-excellent);
+}
+
+.chart {
+  position: relative;
+  height: clamp(7.5rem, 20vw, 11rem);
+  cursor: ew-resize;
+  /* Horizontal drags move the marker; vertical swipes still scroll the page. */
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.curves {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.curves path {
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+
+.poorCurve {
+  fill: var(--ff-poor);
+  fill-opacity: 0.16;
+  stroke: var(--ff-poor);
+}
+
+.goodCurve {
+  fill: var(--ff-good);
+  fill-opacity: 0.16;
+  stroke: var(--ff-good);
+}
+
+.excellentCurve {
+  fill: var(--ff-excellent);
+  fill-opacity: 0.16;
+  stroke: var(--ff-excellent);
+}
+
+.baseline {
+  stroke: var(--ff-muted);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Kept for the keyboard and screen readers; pointers are handled by .chart. */
+.slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.marker {
+  position: absolute;
+  top: -0.25rem;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--ff-ink);
+  pointer-events: none;
+}
+
+.handle {
+  position: absolute;
+  bottom: -0.5625rem;
+  left: 50%;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid var(--ifm-background-color);
+  border-radius: 50%;
+  background: var(--ff-ink);
+  transform: translateX(-50%);
+}
+
+.slider:focus-visible + .marker .handle {
+  outline: 2px solid var(--ff-ink);
+  outline-offset: 3px;
+}
+
+.poorDot,
+.goodDot,
+.excellentDot {
+  position: absolute;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid var(--ifm-background-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.poorDot {
+  background: var(--ff-poor);
+}
+
+.goodDot {
+  background: var(--ff-good);
+}
+
+.excellentDot {
+  background: var(--ff-excellent);
+}
+
+.axis {
+  position: relative;
+  height: 1.25rem;
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--ff-muted);
+}
+
+.axis span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.axis span:first-child {
+  transform: none;
+}
+
+.axis span:last-child {
+  transform: translateX(-100%);
+}
+
+.outcome {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.result {
+  margin: 0;
+  font-size: clamp(1.375rem, 3.2vw, 2.125rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.result strong {
+  font-weight: 800;
+}
+
+.rules {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The weight of each rule follows how strongly it fires (set inline). */
+.rules li {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0;
+  padding-block: 0.25rem;
+  font-family: var(--ff-font), var(--ifm-font-family-monospace);
+  font-size: 0.8125rem;
+  font-variation-settings: 'MONO' 1;
+  line-height: 1.4;
+  color: var(--ff-muted);
+}
+
+.rules li.poorText {
+  color: var(--ff-poor);
+}
+
+.rules li.goodText {
+  color: var(--ff-good);
+}
+
+.rules li.excellentText {
+  color: var(--ff-excellent);
+}
+
+.rules code {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-variation-settings: inherit;
+  color: inherit;
+  background: none;
+}
+
+@media (min-width: 997px) {
+  .outcome {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .rules li {
+    font-size: 0.875rem;
+  }
+}

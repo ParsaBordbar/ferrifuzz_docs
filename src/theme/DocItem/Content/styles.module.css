@@ -1,0 +1,11 @@
+.bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 996px) {
+  .bar {
+    justify-content: flex-start;
+  }
+}

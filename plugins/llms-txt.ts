@@ -3,8 +3,10 @@ import path from 'node:path';
 import type {LoadContext, Plugin} from '@docusaurus/types';
 import type {LoadedContent} from '@docusaurus/plugin-content-docs';
 
-// Writes llms.txt (https://llmstxt.org: an index of every doc page) and llms-full.txt (all
-// docs as one markdown file) into the build, in sidebar order, with canonical URLs.
+// Writes llms.txt (https://llmstxt.org: an index of every doc page), llms-full.txt (all docs
+// as one markdown file) and index.md next to each page's index.html (read by the "Copy for
+// LLM" button, src/theme/DocItem/Content) into the build, in sidebar order, with canonical
+// URLs. These only exist in a build, so the button cannot fetch them under `npm start`.
 
 type Options = {
   canonicalUrl: string;
@@ -13,13 +15,28 @@ type Options = {
   details: string;
 };
 
-type Doc = {title: string; description: string; url: string; file: string};
+type Doc = {title: string; description: string; url: string; file: string; permalink: string};
 type Section = {title: string; docs: Doc[]};
 
 type SidebarItem = {type: string; id?: string; label?: string; items?: SidebarItem[]};
 
 function stripFrontMatter(md: string): string {
   return md.replace(/^---\n[\s\S]*?\n---\n/, '');
+}
+
+// Drops MDX that only means something to the site: imports and the <CheatSheets /> gallery.
+function stripMdx(md: string): string {
+  let inFence = false;
+  return md
+    .split('\n')
+    .filter((line) => {
+      if (line.trimStart().startsWith('```')) {
+        inFence = !inFence;
+        return true;
+      }
+      return inFence || !(line.startsWith('import ') || line.trim() === '<CheatSheets />');
+    })
+    .join('\n');
 }
 
 export default function llmsTxtPlugin(context: LoadContext, options: Options): Plugin {
@@ -50,6 +67,7 @@ export default function llmsTxtPlugin(context: LoadContext, options: Options): P
           description: d.description,
           url: toUrl(d.permalink),
           file: path.join(siteDir, d.source.replace(/^@site\//, '')),
+          permalink: d.permalink,
         };
       };
 
@@ -98,7 +116,7 @@ export default function llmsTxtPlugin(context: LoadContext, options: Options): P
 
       const pages = await Promise.all(
         docs.map(async (d) => {
-          let md = stripFrontMatter(await fs.readFile(d.file, 'utf8'));
+          let md = stripMdx(stripFrontMatter(await fs.readFile(d.file, 'utf8')));
           md = md.replace(/<!--[\s\S]*?-->\n?/g, '');
           // Relative .md links and /img/ paths become absolute canonical URLs.
           md = md.replace(/\]\((\.{1,2}\/[^)\s#]+\.mdx?)(#[^)\s]*)?\)/g, (m, rel, hash = '') => {
@@ -106,6 +124,7 @@ export default function llmsTxtPlugin(context: LoadContext, options: Options): P
             return target ? `](${target}${hash})` : m;
           });
           md = md.replace(/\]\(\/img\//g, `](${options.canonicalUrl}img/`);
+          md = md.replace(/\]\(pathname:\/\/\//g, `](${options.canonicalUrl}`);
           md = md.trim();
           if (!md.startsWith('# ')) {
             md = `# ${d.title}\n\n${md}`;
@@ -123,6 +142,14 @@ export default function llmsTxtPlugin(context: LoadContext, options: Options): P
 
       await fs.writeFile(path.join(outDir, 'llms.txt'), index);
       await fs.writeFile(path.join(outDir, 'llms-full.txt'), full);
+      await Promise.all(
+        docs.map((d, i) =>
+          fs.writeFile(
+            path.join(outDir, d.permalink.slice(siteConfig.baseUrl.length), 'index.md'),
+            `${pages[i]}\n`,
+          ),
+        ),
+      );
     },
   };
 }

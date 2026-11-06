@@ -36,6 +36,11 @@ const sidebars: SidebarsConfig = {
       label: 'Rule Syntax',
     },
     {
+      type: 'doc',
+      id: 'cheat-sheets',
+      label: 'Cheat Sheets',
+    },
+    {
       type: 'category',
       label: 'Tutorials',
       items: [

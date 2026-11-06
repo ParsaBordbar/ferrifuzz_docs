@@ -25,7 +25,8 @@ const STRUCTURED_DATA = {
     {
       '@type': 'WebSite',
       '@id': `${CANONICAL_URL}#website`,
-      name: 'Ferrifuzz documentation',
+      name: 'Ferrifuzz',
+      alternateName: 'Ferrifuzz fuzzy logic library',
       url: CANONICAL_URL,
       description: DESCRIPTION,
       inLanguage: 'en',
@@ -58,16 +59,20 @@ const STRUCTURED_DATA = {
       offers: {'@type': 'Offer', price: '0', priceCurrency: 'USD'},
       author: {'@id': `${CANONICAL_URL}#author`},
       keywords:
-        'fuzzy logic, fuzzy inference system, Mamdani, Sugeno, TSK, interval type-2 fuzzy sets, ' +
+        'ferrifuzz, fuzzy, fuzzy logic, fuzzy library, fuzzy logic library, fuzzy inference system, Mamdani, Sugeno, TSK, interval type-2 fuzzy sets, ' +
         'Karnik-Mendel, fuzzy time series, membership functions, Python, Rust',
-      sameAs: [REPO_URL, 'https://pypi.org/project/ferrifuzz/'],
+      sameAs: [
+        REPO_URL,
+        'https://pypi.org/project/ferrifuzz/',
+        'https://marketplace.visualstudio.com/items?itemName=ParsaBordbar2003.ferrifuzz',
+      ],
     },
   ],
 };
 
 const config: Config = {
   title: 'Ferrifuzz',
-  tagline: 'Fuzzy logic for Python and Rust. Built for uncertainty, engineered for speed.',
+  tagline: 'Fuzzy logic library for Python and Rust. Built for uncertainty, engineered for speed.',
   favicon: 'img/favicon.svg',
 
   future: {
@@ -177,7 +182,8 @@ const config: Config = {
       {
         name: 'keywords',
         content:
-          'fuzzy logic, fuzzy logic python, fuzzy logic rust, fuzzy inference system, mamdani, ' +
+          'ferrifuzz, fuzzy, fuzzy logic, fuzzy library, fuzzy logic library, fuzzy logic python, ' +
+          'fuzzy logic rust, python fuzzy library, rust fuzzy library, fuzzy inference system, mamdani, ' +
           'sugeno, takagi-sugeno-kang, interval type-2 fuzzy, karnik-mendel, fuzzy time series, ' +
           'membership functions, linguistic variables, defuzzification, fuzzy control',
       },
@@ -199,14 +205,31 @@ const config: Config = {
           sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Docs',
+          className: 'nav-icon nav-icon--docs',
         },
-        {to: '/docs/tutorials/tipping', label: 'Tutorials', position: 'left'},
-        {to: '/docs/python-api/overview', label: 'Python API', position: 'left'},
-        {to: '/docs/rust-api/overview', label: 'Rust API', position: 'left'},
+        {
+          to: '/docs/tutorials/tipping',
+          label: 'Tutorials',
+          position: 'left',
+          className: 'nav-icon nav-icon--tutorials',
+        },
+        {
+          to: '/docs/python-api/overview',
+          label: 'Python API',
+          position: 'left',
+          className: 'nav-icon nav-icon--python',
+        },
+        {
+          to: '/docs/rust-api/overview',
+          label: 'Rust API',
+          position: 'left',
+          className: 'nav-icon nav-icon--rust',
+        },
         {
           href: REPO_URL,
           label: 'GitHub',
           position: 'right',
+          className: 'nav-icon nav-icon--github',
         },
       ],
     },
@@ -226,6 +249,7 @@ const config: Config = {
           title: 'Reference',
           items: [
             {label: 'Rule syntax', to: '/docs/rule-syntax'},
+            {label: 'Cheat sheets', to: '/docs/cheat-sheets'},
             {label: 'Python API', to: '/docs/python-api/overview'},
             {label: 'Rust API', to: '/docs/rust-api/overview'},
             {label: 'FAQ', to: '/docs/faq'},

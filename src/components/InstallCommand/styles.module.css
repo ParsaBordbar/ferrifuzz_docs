@@ -1,65 +1,69 @@
 .wrapper {
   display: flex;
+  flex: 1 1 18rem;
   align-items: center;
-  gap: 0.75rem;
-
-  margin-top: 1rem;
-  padding: 0.6rem 0.75rem;
-
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-
-  max-width: 100%;
-  overflow: hidden;
-    justify-content: space-between;
-
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 0;
+  min-height: 3rem;
+  padding-inline: 0.875rem 0.25rem;
+  border: 1px solid var(--ff-line);
+  border-radius: 0.5rem;
 }
 
 .command {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.95rem;
-  white-space: nowrap;
+  min-width: 0;
+  padding: 0;
+  border: 0;
   overflow-x: auto;
-  max-width: 100%;
-  background-color: transparent;
-  border: none;
-}
-
-/* hide scrollbar but keep scrollability */
-.command::-webkit-scrollbar {
-  display: none;
+  font-family: var(--ff-font), var(--ifm-font-family-monospace);
+  font-size: 0.9375rem;
+  font-variation-settings: 'MONO' 1;
+  white-space: nowrap;
+  color: var(--ff-ink);
+  background: none;
 }
 
 .button {
+  display: inline-flex;
   flex-shrink: 0;
-
-  border: none;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2.5rem;
+  padding-inline: 0.625rem;
+  border: 0;
+  border-radius: 0.375rem;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--ff-muted);
+  background: none;
   cursor: pointer;
-  padding: 0.35rem 0.7rem;
-  border-radius: 7px;
-
-  background: transparent;
-  color: white;
-  font-size: 0.75rem;
 }
 
-/* ✅ MOBILE FIX */
-@media (max-width: 640px) {
-  .wrapper {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-    display: none;
-  }
+.button:hover {
+  color: var(--ff-ink);
+  background: var(--ff-line);
+}
 
-  .command {
-    white-space: normal;
-    text-align: center;
-    overflow-x: visible;
-  }
+.button:focus-visible {
+  outline: 2px solid var(--ff-ink);
+  outline-offset: 1px;
+}
 
-  .button {
-    width: 100%;
-    text-align: center;
-  }
+.icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  background: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+
+.iconCopy {
+  -webkit-mask-image: url('../../../static/img/icons/copy.svg');
+  mask-image: url('../../../static/img/icons/copy.svg');
+}
+
+.iconCheck {
+  -webkit-mask-image: url('../../../static/img/icons/check.svg');
+  mask-image: url('../../../static/img/icons/check.svg');
 }

@@ -19,6 +19,10 @@ npm run typecheck
 - Math uses KaTeX (`$...$`, `$$...$$`).
 - Notes for maintainers that must not be shown to readers go in HTML comments.
   `<!-- TODO(0.2.0-api): ... -->` marks claims to re-check against a library release.
+- Navbar and copy icons in `static/img/icons/` come from [IconMCP](https://iconmcp.com). The
+  homepage font is Recursive, self-hosted in `static/fonts/` (SIL OFL).
+- `static/cheatsheets/` holds the cheat sheet PDFs and PNGs; list them in
+  `src/components/CheatSheets/index.tsx`.
 - Every page needs a `title` and a specific `description` in its front matter (search results
   and `llms.txt` use them); add `keywords` where they help.
 
@@ -36,8 +40,10 @@ Both deployments serve the same pages, so every build points `<link rel="canonic
 rewrites the HTML when building for another host). Each build also contains:
 
 - `sitemap.xml`, `robots.txt`;
-- `llms.txt` (index of every page, [llmstxt.org](https://llmstxt.org) format) and
-  `llms-full.txt` (all docs as one markdown file), generated from `docs/` in sidebar order by
+- `llms.txt` (index of every page, [llmstxt.org](https://llmstxt.org) format),
+  `llms-full.txt` (all docs as one markdown file) and an `index.md` beside each page (used by
+  the "Copy for LLM" button, so it only works in a build), generated from `docs/` in sidebar
+  order by
   [`plugins/llms-txt.ts`](plugins/llms-txt.ts);
 - JSON-LD structured data and site-wide meta tags (`headTags` and `themeConfig.metadata` in
   `docusaurus.config.ts`).
