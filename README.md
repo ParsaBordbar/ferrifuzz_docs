@@ -6,8 +6,7 @@ fuzzy logic library with a Rust core and a Python package
 [ParsaBordbar/ferrifuzz](https://github.com/ParsaBordbar/ferrifuzz); this repo holds only the
 site, built with [Docusaurus](https://docusaurus.io/) 3.
 
-Read it at **https://parsabordbar.github.io/ferrifuzz_docs/** or
-**https://ferrifuzz.bubblelamp.space**.
+Read it at **https://ferrifuzz.ir**.
 
 ```bash
 npm install
@@ -27,16 +26,16 @@ npm run typecheck
 
 | Variable | Default | |
 |---|---|---|
-| `DOCS_URL` | `https://ferrifuzz.bubblelamp.space` | host the build is served from |
+| `DOCS_URL` | `https://ferrifuzz.ir` | host the build is served from |
 | `DOCS_BASE_URL` | `/` | path the build is served under |
-| `DOCS_CANONICAL_URL` | `https://parsabordbar.github.io/ferrifuzz_docs/` | the one copy search engines should index |
+| `DOCS_CANONICAL_URL` | `https://ferrifuzz.ir/` | the one copy search engines should index |
 | `DOCS_NOINDEX` | unset | `1` adds `noindex` to every page (e.g. a preview) |
 
 Both deployments serve the same pages, so every build points `<link rel="canonical">`,
 `og:url` and the sitemap at `DOCS_CANONICAL_URL` ([`plugins/canonical-url.ts`](plugins/canonical-url.ts)
 rewrites the HTML when building for another host). Each build also contains:
 
-- `sitemap.xml`, `robots.txt` (only read at a host root, i.e. on the VPS);
+- `sitemap.xml`, `robots.txt`;
 - `llms.txt` (index of every page, [llmstxt.org](https://llmstxt.org) format) and
   `llms-full.txt` (all docs as one markdown file), generated from `docs/` in sidebar order by
   [`plugins/llms-txt.ts`](plugins/llms-txt.ts);
@@ -50,10 +49,15 @@ Chrome screenshot). On each library release, bump `softwareVersion` in the JSON-
 ## Deploying (GitHub Pages)
 
 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) builds the site with
-`DOCS_URL=https://parsabordbar.github.io DOCS_BASE_URL=/ferrifuzz_docs/` and publishes it on
-every push to `main` (or *Actions → Pages → Run workflow*). One-time setup: *Settings → Pages →
-Source: GitHub Actions*. This is the canonical copy for search engines. To hide it, set the
-repository variable `DOCS_NOINDEX=1` (*Settings → Secrets and variables → Actions → Variables*).
+`DOCS_URL=https://ferrifuzz.ir DOCS_BASE_URL=/` and publishes it on every push to `main` (or
+*Actions → Pages → Run workflow*). One-time setup: *Settings → Pages → Source: GitHub Actions,
+Custom domain: `ferrifuzz.ir`, Enforce HTTPS*. No `CNAME` file is needed with Actions deploys.
+This is the canonical copy for search engines. To hide it, set the repository variable
+`DOCS_NOINDEX=1` (*Settings → Secrets and variables → Actions → Variables*).
+
+DNS for `ferrifuzz.ir`: `A` records to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`
+and `185.199.111.153`; `AAAA` records to `2606:50c0:8000::153`, `2606:50c0:8001::153`,
+`2606:50c0:8002::153` and `2606:50c0:8003::153`; `CNAME www` to `parsabordbar.github.io`.
 
 ## Deploying (VPS)
 
@@ -92,7 +96,7 @@ of the script.
 
 ### Search engines
 
-The VPS is a mirror: its pages are indexable but their canonical URLs point at GitHub Pages
+The VPS is a mirror: its pages are indexable but their canonical URLs point at ferrifuzz.ir
 (see [Build settings and SEO](#build-settings-and-seo)), so search engines list only one copy.
 
 Install commands point at PyPI (`pip install ferrifuzz`).

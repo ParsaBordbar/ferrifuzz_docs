@@ -1,6 +1,6 @@
-# Only read at a host root, i.e. on ferrifuzz.bubblelamp.space. The canonical copy of the
-# docs is https://parsabordbar.github.io/ferrifuzz_docs/.
+# Served at the host root of ferrifuzz.ir (and of the VPS mirror, whose pages point their
+# canonical URLs at ferrifuzz.ir).
 User-agent: *
 Allow: /
 
-Sitemap: https://parsabordbar.github.io/ferrifuzz_docs/sitemap.xml
+Sitemap: https://ferrifuzz.ir/sitemap.xml

@@ -9,11 +9,11 @@ import rehypeKatex from 'rehype-katex';
 const REPO_URL = 'https://github.com/ParsaBordbar/ferrifuzz';
 const DOCS_REPO_URL = 'https://github.com/ParsaBordbar/ferrifuzz_docs';
 
-const SITE_URL = process.env.DOCS_URL ?? 'https://ferrifuzz.bubblelamp.space';
+const SITE_URL = process.env.DOCS_URL ?? 'https://ferrifuzz.ir';
 const BASE_URL = process.env.DOCS_BASE_URL ?? '/';
 // Where search engines should index the docs, whichever host this build is for. Used for
 // canonical/og:url (plugins/canonical-url.ts), the sitemap, JSON-LD and llms.txt.
-const CANONICAL_URL = process.env.DOCS_CANONICAL_URL ?? 'https://parsabordbar.github.io/ferrifuzz_docs/';
+const CANONICAL_URL = process.env.DOCS_CANONICAL_URL ?? 'https://ferrifuzz.ir/';
 
 const DESCRIPTION =
   'Ferrifuzz is an open-source fuzzy logic library for Python and Rust: membership functions, ' +
@@ -75,9 +75,9 @@ const config: Config = {
   },
 
   // Set the domain and path at build time:
-  //   npm run build                                   → https://ferrifuzz.bubblelamp.space/ (the default, VPS)
-  //   DOCS_URL=https://parsabordbar.github.io DOCS_BASE_URL=/ferrifuzz_docs/ npm run build
-  //                                                   → GitHub Pages (.github/workflows/pages.yml)
+  //   npm run build                                   → https://ferrifuzz.ir/ (the default, GitHub Pages)
+  //   DOCS_URL=https://ferrifuzz.bubblelamp.space npm run build
+  //                                                   → VPS mirror (deploy/deploy-docs.sh)
   // Both builds point canonical URLs at CANONICAL_URL. DOCS_NOINDEX=1 adds
   // <meta name="robots" content="noindex"> to every page (e.g. for a preview).
   url: SITE_URL,
